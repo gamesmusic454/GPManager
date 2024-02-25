@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+
+  mySQL:
+    image: mysql:latest
+    restart: always
+    container_name: mySQL
+    volumes:
+      - mySQLVolume:/var/lib/mysql
+    ports:
+      - "6002:9002"
+    networks:
+      GPManager_Network:
+        ipv4_address: 172.20.0.2
+    environment:
+      MYSQL_TCP_PORT: 9002
+      MYSQL_USER: GPManagerUser
+      MYSQL_PASSWORD: DevPassOK
+      MYSQL_DATABASE: GPManagerDB
+      MYSQL_ROOT_PASSWORD: 4546678906YP?!
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  backend:
+    build: ./Backend
+    container_name: GPManager_Backend
+    ports:
+      - "5000:5000"
+    networks:
+      - GPManager_Network
+
+networks:
+  GPManager_Network:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  mySQL_GPDB:
+  SmurfitVolume:
+  MosquittoVolume:
