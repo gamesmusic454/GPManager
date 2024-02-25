@@ -1,0 +1,22 @@
+{
+    "Estanteria": {
+        "id": "QREstanteria",
+        "nombre": "Estanteria 1",
+        "baldas":[
+            {
+                "id": "QRBalda1",
+                "nombre": "Balda 1",
+                "numero": 1,
+                "productos": ["1234ABC", "1234ABC"]
+            },
+            {
+                "id": "QRBalda2",
+                "nombre": "Balda 2",
+                "numero": 2,
+                "productos": ["1234ABC", "1234ABC"]
+            }
+        ]
+        
+    }
+}
+

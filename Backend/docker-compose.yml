@@ -7,7 +7,7 @@ services:
     restart: always
     container_name: mySQL
     volumes:
-      - mySQLVolume:/var/lib/mysql
+      - mySQL_GPDB:/var/lib/mysql
     ports:
       - "6002:9002"
     networks:
@@ -28,10 +28,13 @@ services:
   backend:
     build: ./Backend
     container_name: GPManager_Backend
+    volumes:
+      - backend_data:/
     ports:
       - "5000:5000"
     networks:
-      - GPManager_Network
+      GPManager_Network:
+        ipv4_address: 172.20.0.3
 
 networks:
   GPManager_Network:
@@ -42,5 +45,4 @@ networks:
 
 volumes:
   mySQL_GPDB:
-  SmurfitVolume:
-  MosquittoVolume:
+  backend_data:

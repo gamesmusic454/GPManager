@@ -1,0 +1,21 @@
+{
+    "_id": {
+      "$oid": "65dbabed11c1930015332b4a"
+    },
+    "id": "1234ABC",
+    "categoria": "Cableado",
+    "vendedor": "Elektra",
+    "nombre": "Producto 1",
+    "descripcion": "Descripcion del producto 1",
+    "cantidad": 50,
+    "ultimaCompra": "2021-10-10",
+    "movimientos": [
+      {
+        "usuario": "Juan Perez",
+        "fecha": "2021-10-15",
+        "deviceName": "Phone#1"
+      }
+    ],
+    "img_url": "",
+    "precio": 1000
+}
